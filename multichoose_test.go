@@ -42,3 +42,14 @@ func TestMultiChoose(t *testing.T) {
 		require.Equal(t, false, mc.IsSelected(i))
 	}
 }
+
+func TestMultiChooseToggle(t *testing.T) {
+	mc := multichoose.New(5)
+
+	for i := 0; i < mc.Length(); i++ {
+		mc.Toggle(i)
+		require.Equal(t, true, mc.IsSelected(i))
+		mc.Toggle(i)
+		require.Equal(t, false, mc.IsSelected(i))
+	}
+}

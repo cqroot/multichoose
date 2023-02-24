@@ -14,22 +14,6 @@ func New(length int) *MultiChoose {
 	}
 }
 
-func (mc MultiChoose) Length() int {
-	return mc.length
-}
-
-func (mc *MultiChoose) SetLength(length int) {
-	mc.length = length
-}
-
-func (mc MultiChoose) Limit() int {
-	return mc.limit
-}
-
-func (mc *MultiChoose) SetLimit(limit int) {
-	mc.limit = limit
-}
-
 func (mc MultiChoose) Count() int {
 	count := 0
 	for i := 0; i <= mc.length; i++ {

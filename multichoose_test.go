@@ -9,8 +9,8 @@ import (
 )
 
 func TestMultiChoose(t *testing.T) {
-	mc := multichoose.New(5)
-	require.Equal(t, 5, mc.Length())
+	mc := multichoose.New(100)
+	require.Equal(t, 100, mc.Length())
 
 	for i := 0; i < mc.Length(); i++ {
 		require.Equal(t, false, mc.IsSelected(i))
@@ -26,13 +26,13 @@ func TestMultiChoose(t *testing.T) {
 		require.Equal(t, false, mc.IsSelected(i))
 	}
 
-	mc.SetLimit(2)
+	mc.SetLimit(50)
 
-	for i := 0; i < 2; i++ {
+	for i := 0; i < 50; i++ {
 		mc.Select(i)
 		require.Equal(t, true, mc.IsSelected(i))
 	}
-	for i := 2; i < mc.Length(); i++ {
+	for i := 50; i < mc.Length(); i++ {
 		mc.Select(i)
 		require.Equal(t, false, mc.IsSelected(i))
 	}
@@ -44,7 +44,7 @@ func TestMultiChoose(t *testing.T) {
 }
 
 func TestMultiChooseToggle(t *testing.T) {
-	mc := multichoose.New(5)
+	mc := multichoose.New(100)
 
 	for i := 0; i < mc.Length(); i++ {
 		mc.Toggle(i)
